@@ -118,7 +118,7 @@
                         #If The Line Begins With 9 Spaces (And Whose Next Character Isnt A Space) '^\s{9}[^ ]' AND If The Line Contains A Colon Followed By A Space '\:\s' We Continue
                         ElseIf (($Line -MATCH '^\s{9}[^ ]') -AND ($Line -MATCH '\:\s'))
                         {
-                            Write-Verbose "$((Get-Date).ToString($VerboseDateFormat)) : Found Physical Device Information Line '$($Line)'`r`n"
+                            Write-Verbose "$((Get-Date).ToString($VerboseDateFormat)) : Found Physical Device Information Line '$($Line.Trim())'`r`n"
                             #We Trim WhiteSpace Off The Start Of The String
                             #We Split The Line In 2.
                             #To Do This We Use The Regex #(?s)\s{2}.*?\:\s
@@ -138,7 +138,7 @@
                         #It Is Important To Note We Search For '  PHY Identifier  ' With At Least 2 Spaces Each Side. This Is So We Dont Accidentally Select The Similarly Named 'Attached PHY Identifier' Property Which Might Have A Different Value
                         ElseIf (($Line -MATCH '^\s{12}[^ ]') -AND ($Line -MATCH '\:\s') -AND ($Line -MATCH '\s{2}PHY Identifier\s{2}'))
                         {
-                            Write-Verbose "$((Get-Date).ToString($VerboseDateFormat)) : Found Device PHY Identifier Information Line '$($Line)'`r`n"
+                            Write-Verbose "$((Get-Date).ToString($VerboseDateFormat)) : Found Device PHY Identifier Information Line '$($Line.Trim())'`r`n"
                             #We Trim WhiteSpace Off The Start Of The String
                             #We Split The Line In 2.
                             #To Do This We Use The Regex #(?s)\s{2}.*?\:\s
@@ -160,7 +160,7 @@
                         #If The Line Begins With 12 Spaces (And Whose Next Character Isnt A Space) '^\s{12}[^ ]' AND If The Line Contains A Colon Followed By A Space '\:\s' We Continue
                         ElseIf (($Line -MATCH '^\s{12}[^ ]') -AND ($Line -MATCH '\:\s'))
                         {
-                            Write-Verbose "$((Get-Date).ToString($VerboseDateFormat)) : Found Device Phy Information Line '$($Line)'`r`n"
+                            Write-Verbose "$((Get-Date).ToString($VerboseDateFormat)) : Found Device Phy Information Line '$($Line.Trim())'`r`n"
                             #We Trim WhiteSpace Off The Start Of The String
                             #We Split The Line In 2.
                             #To Do This We Use The Regex #(?s)\s{2}.*?\:\s
